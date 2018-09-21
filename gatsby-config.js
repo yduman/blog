@@ -3,9 +3,9 @@ module.exports = {
     title: 'Yadullah Duman Blog',
     author: 'Yadullah Duman',
     description: 'My personal blog where I share my experiences while exploring stuff',
-    siteUrl: 'https://yduman.github.io/',
+    siteUrl: 'https://yduman.github.io',
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
