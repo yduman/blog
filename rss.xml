@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yadullah Duman Blog]]></title><description><![CDATA[My personal blog where I share my experiences while exploring stuff]]></description><link>https://yduman.github.io</link><generator>RSS for Node</generator><lastBuildDate>Fri, 21 Sep 2018 13:27:59 GMT</lastBuildDate><item><title><![CDATA[Entering the World of MDX-Deck]]></title><description><![CDATA[Let me kidnap you to the world of  MDX-Deck . This project was on my radar for a while and I had the opportunity to test it for a…]]></description><link>https://yduman.github.io/mdx-deck/</link><guid isPermaLink="false">https://yduman.github.io/mdx-deck/</guid><pubDate>Fri, 21 Sep 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Let me kidnap you to the world of &lt;a href=&quot;https://github.com/jxnblk/mdx-deck&quot;&gt;MDX-Deck&lt;/a&gt;. This project was on my radar for a while and I had the opportunity to test it for a presentation I had to make. I was really suprised how fast and easy you can generate good looking slides and how easy it is to integrate interactive elements into your presentation.&lt;/p&gt;
+&lt;h2&gt;The World of MDX&lt;/h2&gt;
+&lt;p&gt;MDX is a combination of Markdown and JSX.&lt;/p&gt;
+&lt;p&gt;Anyone who got their hands dirty with Markdown should actually know that it is super-easy to generate and export documents. I’m writing myself almost everything I can with Markdown (e.g. documentation of projects, notes, summaries for college stuff, etc.).&lt;/p&gt;
+&lt;p&gt;And now we add JSX into that Markdown world, but why? The idea was to use the advantages of React components in Markdown. But since you were losing the simplicity of Markdown trying to achieve this goal, &lt;a href=&quot;https://twitter.com/rauchg&quot;&gt;Guillermo Rauch&lt;/a&gt; created a &lt;a href=&quot;https://spectrum.chat/thread/1021be59-2738-4511-aceb-c66921050b9a&quot;&gt;proposal&lt;/a&gt; and &lt;code class=&quot;language-text&quot;&gt;.mdx&lt;/code&gt; is born.&lt;/p&gt;
+&lt;p&gt;You can read more about MDX &lt;a href=&quot;https://mdxjs.com/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;MDX-Deck&lt;/h2&gt;
+&lt;p&gt;So now &lt;a href=&quot;https://twitter.com/jxnblk&quot;&gt;Brent Jackson&lt;/a&gt; created this awesome tool called MDX-Deck, in order to create presentations using MDX. Just to quote some features:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Write presentations in markdown&lt;/li&gt;
+&lt;li&gt;Import and use React components&lt;/li&gt;
+&lt;li&gt;Customizable themes and components&lt;/li&gt;
+&lt;li&gt;Zero-config CLI&lt;/li&gt;
+&lt;li&gt;Presenter mode&lt;/li&gt;
+&lt;li&gt;Speaker notes&lt;/li&gt;
+&lt;li&gt;Production Export&lt;/li&gt;
+&lt;li&gt;PDF Export&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;How to use it?&lt;/h2&gt;
+&lt;p&gt;Let’s create a folder &lt;code class=&quot;language-text&quot;&gt;Slides&lt;/code&gt; where our presentation will live in and add &lt;code class=&quot;language-text&quot;&gt;mdx-deck&lt;/code&gt; as a dev-dependency.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mkdir Slides &amp;amp;&amp;amp; cd Slides
+$ yarn init
+$ yarn add mdx-deck --dev
+$ touch deck.mdx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Create a &lt;code class=&quot;language-text&quot;&gt;start&lt;/code&gt; script inside of &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; to run a local server on &lt;code class=&quot;language-text&quot;&gt;localhost:8080&lt;/code&gt; in watch-mode.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;mdx-deck deck.mdx&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The previous created &lt;code class=&quot;language-text&quot;&gt;deck.mdx&lt;/code&gt; is the file where we write our presentation. Each slide is divided by three dashes.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;# First slide
+
+&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+
+# Second slide
+
+### Yadullah Duman
+
+This is too easy&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Demo &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./components/Demo&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Demo &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+
+# The End&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And yes, we can use all features of React and Markdown. How cool is that?&lt;/p&gt;
+&lt;h2&gt;Some Features&lt;/h2&gt;
+&lt;p&gt;In the repository, you can find quite a bit under &lt;a href=&quot;https://github.com/jxnblk/mdx-deck/tree/master/docs&quot;&gt;docs&lt;/a&gt;. In the following, I just want to show some features I played with.&lt;/p&gt;
+&lt;h3&gt;Themes&lt;/h3&gt;
+&lt;p&gt;MDX-Deck has some built-in &lt;a href=&quot;https://github.com/jxnblk/mdx-deck/blob/master/docs/themes.md&quot;&gt;themes&lt;/a&gt;. Now let’s ensure some syntax highlighting for our code snippets. To do that, we create a custom theme. I will create a file called &lt;code class=&quot;language-text&quot;&gt;theme.js&lt;/code&gt; to define my own theme.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; swiss &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;mdx-deck/themes&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; style &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react-syntax-highlighter/styles/prism/ghcolors&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; java &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react-syntax-highlighter/languages/prism/java&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; scala &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react-syntax-highlighter/languages/prism/scala&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// extend a default theme&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;swiss&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// custom font&lt;/span&gt;
+  font&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Roboto, sans-serif&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// custom colors&lt;/span&gt;
+  colors&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    text&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    background&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;white&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    link&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;blue&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// syntax highlighting&lt;/span&gt;
+  prism&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    style&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    languages&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      java&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      scala
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To use your custom theme, add the following line to the top of &lt;code class=&quot;language-text&quot;&gt;deck.mdx&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; theme &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./theme&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Layouts&lt;/h3&gt;
+&lt;p&gt;Besides some built-in layouts like &lt;code class=&quot;language-text&quot;&gt;Invert&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Split&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;SplitRight&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;FullScreenCode&lt;/code&gt;, you can write your own custom layout components which you can use in your desired slides.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; children &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div
+    style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      width&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;100vw&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      height&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;100vw&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      backgroundColor&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;darkcyan&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;children&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In &lt;code class=&quot;language-text&quot;&gt;deck.mdx&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; MyCustomLayout &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./MyCustomLayout&quot;&lt;/span&gt;
+
+# No Custom Layout here
+
+&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; MyCustomLayout
+
+# MyCustomLayout here&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Export&lt;/h3&gt;
+&lt;p&gt;There are several ways to export your presentation. Choose your desired method and an additional script in &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;start&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;mdx-deck deck.mdx&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;export-static-bundle&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;mdx-deck build deck.mdx&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;export-pdf&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;mdx-deck pdf deck.mdx&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;export-screenshot&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;mdx-deck screenshot deck.mdx&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Tip&lt;/h3&gt;
+&lt;p&gt;To ensure more interactivity with your code snippets, take a look at &lt;a href=&quot;https://github.com/pomber/code-surfer&quot;&gt;Code Surfer&lt;/a&gt;. You can scroll, zoom and highlight relevant parts in your code!&lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;The proof of the pudding is in the eating. I could talk and talk more about this great tool, but in the end you have to try it yourself and see if it fits your needs.&lt;/p&gt;
+&lt;p&gt;Some reactions from Twitter:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/rauchg&quot;&gt;Guillermo Rauch&lt;/a&gt; (ZEIT)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;“mdx-deck puts your deck online, exports to PDF, is version controlled and easy to write and extend. Not many usecases left for Keynote”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/kentcdodds&quot;&gt;Kent C. Dodds&lt;/a&gt; (PayPal)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;“Just used mdx-deck by @jxnblk and it’s an absolute delight. I’m planning on using this for everything from now on!”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/chrisoncode&quot;&gt;Chris Sevilleja&lt;/a&gt; (Flutter)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;“Gonna make my next presenation with mdx-deck. Love the amount of control you can get for superpowered transitions/designs”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/hswolff&quot;&gt;Harry Wolff&lt;/a&gt; (MongoDB)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;“It’s an incredible way to make beautiful presentations with the power of Markdown and JSX.”&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
