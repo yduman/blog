@@ -1,0 +1,117 @@
+---
+title: Get Hooked with React Hooks
+date: '2018-10-26'
+---
+
+So yesterday [ReactConf](https://conf.reactjs.org/) started with the opening keynote of Sophie Alpert and Dan Abramov about "React Today and Tomorrow".
+Dan Abramov introduced [Hooks](https://reactjs.org/docs/hooks-intro.html), which is currently in React v16.7.0-alpha and in a RFC status. I was really hooked (pun intended) about the new possibilites with the new API and many library developers immediately started to try it out and they were amazed too.
+
+## Why Hooks?
+
+The React team observed over time, that it is hard to reuse stateful logic between components. Many developers used patterns like render props and higher-order components to solve this, but most of the time you ended up in a "wrapper hell". The Hooks API will allow developers to reuse stateful logic without changing the component hierarchy.
+
+Another problem to solve was that if your class components grew more and more, you had logic in `componentDidMount`, `componentDidUpdate`, `componentWillUnmount` etc. Over time your component becomes more complex and you have to stay in sync with all your lifecycle methods in order to prevent bugs. Furthermore you couldn't just extract smaller components from your complex component because the stateful logic is spreaded accross it. To solve this issue, the Hooks API will let you split a component into smaller one because everything is a function and you simple extract your logic into another function.
+
+## What are Hooks?
+
+The new Hooks API enables developers to _use_ state and side effects in functional components. There are several Hook functions you can use right now and there will be probably more until the stable release. Below you will see a simple counter component using the `useState` Hook.
+
+### State Hooks
+
+```jsx
+import React, { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  const increment = () => setCount(currentCount => currentCount + 1)
+
+  return <button onClick={increment}>{count}</button>
+}
+```
+
+Here `useState` gets an argument, which is the initial state and returns a pair of the current state and the function to update the state.
+
+### Effect Hooks
+
+To perform side effects in your component (e.g. DOM manipulation, data fetching, etc.) you will make use of the `useEffect` Hook.
+It behaves like `componentDidMount`, `componentDidUpdate` and `componentWillUnmount` combined in one function (crazy right?). If you want to clean up (e.g. removing event listeners) you just return a function and do your clean up in the function body.
+
+```jsx
+import React, { useState, useEffect } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  const increment = () => setCount(currentCount => currentCount + 1)
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`
+  })
+
+  return <button onClick={() => setCount(count + 1)}>Click me</button>
+}
+```
+
+### Reuse Stateful Logic with Custom Hooks
+
+Now here comes the fun part. You can write custom Hooks and reuse it everywhere you need them! The convention for writing a custom Hook is that the name starts with "use" and that it may call other Hooks. Below we will create a custom `useCounter` Hook which you can use across components.
+
+```jsx
+import React, { useState } from 'react'
+
+function useCounter(initialCount, step) {
+  const [count, setCount] = useState(initialCount)
+  const increment = () => setCount(count + step)
+
+  return { count, increment }
+}
+
+function CounterOne() {
+  const { count, increment } = useCounter(5, 1)
+  return <button onClick={increment}>{count}</button>
+}
+
+function CounterTwo() {
+  const { count, increment } = useCounter(5, 2)
+  return <button onClick={increment}>{count}</button>
+}
+```
+
+## Testing with react-testing-library
+
+Testing becomes also very easy. Let's test the `Counter` component above.
+
+```jsx
+import React from 'react'
+import { render, fireEvent } from 'react-testing-library'
+import Counter from './Counter'
+
+test('counter increments the count', () => {
+  const { container } = render(<Counter />)
+  const button = container.firstChild
+
+  expect(button.textContent).toBe('0')
+  fireEvent.click(button)
+  expect(button.textContent).toBe('1')
+})
+```
+
+## Which Hooks are available?
+
+The current [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html) lists the following Hooks:
+
+- Basic Hooks
+  - `useState`
+  - `useEffect`
+  - `useContext`
+- Additional Hooks
+  - `useReducer`
+  - `useCallback`
+  - `useMemo`
+  - `useRef`
+  - `useImperativeMethods`
+  - `useMutationEffect`
+  - `useLayoutEffect`
+
+## Conclusion
+
+To sum it up, I belive that Hooks will enable React developers to write code which is more expressive and more declarative. Even the fact that you can now simply write custom Hooks to enable reusability among your components makes testing also a lot easier. Furthermore I believe that static analysis, tooling and bundling capabilities will benefit from it. I really appreciate the dedication of the React team trying to observe problems we developers encounter and try to provide the best solution possible in order to ensure great experience using React. It's how Ryan Florence mentioned it in his talk after, that to this day he never experienced boredom when writing React and that he's even more hyped about future stuff coming to the React Ecosystem.
