@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Yadullah Duman Blog',
+    title: 'Yadullah Duman: Blog',
     author: 'Yadullah Duman',
-    description: 'My personal blog where I share my experiences while exploring stuff',
+    description:
+      'My personal blog where I share my experiences while exploring stuff',
     siteUrl: 'https://yduman.github.io',
   },
   pathPrefix: '/blog',

@@ -26,7 +26,7 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-            Yadullah Duman Blog
+            {'<MyBlog />'}
           </Link>
         </h1>
       )
@@ -47,7 +47,7 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-            Yadullah Duman Blog
+            {'<MyBlog />'}
           </Link>
         </h3>
       )
