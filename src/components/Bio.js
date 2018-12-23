@@ -26,10 +26,11 @@ class Bio extends React.Component {
             height: rhythm(2),
           }}
         />
-        <div>
-          Written by <strong>Yadullah Duman</strong>. JavaScript and clean code
-          enthusiast.
-        </div>
+        <p style={{ maxWidth: 310 }}>
+          Written by{' '}
+          <a href="https://mobile.twitter.com/proxyduman">Yadullah Duman</a>.{' '}
+          &nbsp; JavaScript and Clean Code enthusiast.
+        </p>
       </div>
     )
   }

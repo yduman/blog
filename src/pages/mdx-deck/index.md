@@ -1,6 +1,7 @@
 ---
 title: Entering the World of MDX-Deck
-date: "2018-09-21"
+date: '2018-09-21'
+spoiler: An introduction to MDX-Deck
 ---
 
 Let me kidnap you to the world of [MDX-Deck](https://github.com/jxnblk/mdx-deck). This project was on my radar for a while and I had the opportunity to test it for a presentation I had to make. I was really suprised how fast and easy you can generate good looking slides and how easy it is to integrate interactive elements into your presentation.
@@ -71,7 +72,6 @@ import Demo from "./components/Demo"
 ---
 
 # The End
-
 ```
 
 And yes, we can use all features of React and Markdown. How cool is that?
@@ -85,37 +85,37 @@ In the repository, you can find quite a bit under [docs](https://github.com/jxnb
 MDX-Deck has some built-in [themes](https://github.com/jxnblk/mdx-deck/blob/master/docs/themes.md). Now let's ensure some syntax highlighting for our code snippets. To do that, we create a custom theme. I will create a file called `theme.js` to define my own theme.
 
 ```javascript
-import { swiss } from "mdx-deck/themes";
-import style from "react-syntax-highlighter/styles/prism/ghcolors";
-import java from "react-syntax-highlighter/languages/prism/java";
-import scala from "react-syntax-highlighter/languages/prism/scala";
+import { swiss } from 'mdx-deck/themes'
+import style from 'react-syntax-highlighter/styles/prism/ghcolors'
+import java from 'react-syntax-highlighter/languages/prism/java'
+import scala from 'react-syntax-highlighter/languages/prism/scala'
 
 export default {
   // extend a default theme
   ...swiss,
   // custom font
-  font: "Roboto, sans-serif",
+  font: 'Roboto, sans-serif',
   // custom colors
   colors: {
-    text: "black",
-    background: "white",
-    link: "blue"
+    text: 'black',
+    background: 'white',
+    link: 'blue',
   },
   // syntax highlighting
   prism: {
     style,
     languages: {
       java,
-      scala
-    }
-  }
-};
+      scala,
+    },
+  },
+}
 ```
 
 To use your custom theme, add the following line to the top of `deck.mdx`.
 
 ```javascript
-export { default as theme } from "./theme";
+export { default as theme } from './theme'
 ```
 
 ### Layouts
@@ -123,19 +123,19 @@ export { default as theme } from "./theme";
 Besides some built-in layouts like `Invert`, `Split`, `SplitRight` and `FullScreenCode`, you can write your own custom layout components which you can use in your desired slides.
 
 ```javascript
-import React from "react";
+import React from 'react'
 
 export default ({ children }) => (
   <div
     style={{
-      width: "100vw",
-      height: "100vw",
-      backgroundColor: "darkcyan"
+      width: '100vw',
+      height: '100vw',
+      backgroundColor: 'darkcyan',
     }}
   >
     {children}
   </div>
-);
+)
 ```
 
 In `deck.mdx`
@@ -162,7 +162,7 @@ There are several ways to export your presentation. Choose your desired method a
     "start": "mdx-deck deck.mdx",
     "export-static-bundle": "mdx-deck build deck.mdx",
     "export-pdf": "mdx-deck pdf deck.mdx",
-    "export-screenshot": "mdx-deck screenshot deck.mdx",
+    "export-screenshot": "mdx-deck screenshot deck.mdx"
   }
 }
 ```
@@ -185,4 +185,3 @@ Some reactions from Twitter:
   - _"Gonna make my next presenation with mdx-deck. Love the amount of control you can get for superpowered transitions/designs"_
 - [Harry Wolff](https://twitter.com/hswolff) (MongoDB)
   - _"It's an incredible way to make beautiful presentations with the power of Markdown and JSX."_
-

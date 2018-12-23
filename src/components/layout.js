@@ -3,9 +3,9 @@ import { Link } from 'gatsby'
 
 import { rhythm, scale } from '../utils/typography'
 
-class Template extends React.Component {
+class Layout extends React.Component {
   render() {
-    const { location, children } = this.props
+    const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -13,7 +13,7 @@ class Template extends React.Component {
       header = (
         <h1
           style={{
-            ...scale(1.5),
+            ...scale(1.0),
             marginBottom: rhythm(1.5),
             marginTop: 0,
           }}
@@ -26,7 +26,7 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-            {'<MyBlog />'}
+            {title}
           </Link>
         </h1>
       )
@@ -47,7 +47,7 @@ class Template extends React.Component {
             }}
             to={'/'}
           >
-            {'<MyBlog />'}
+            {title}
           </Link>
         </h3>
       )
@@ -68,4 +68,4 @@ class Template extends React.Component {
   }
 }
 
-export default Template
+export default Layout

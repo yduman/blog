@@ -1,6 +1,7 @@
 ---
 title: Get Hooked with React Hooks
 date: '2018-10-26'
+spoiler: Some insights about Hooks after watching ReactConf2018
 ---
 
 So yesterday [ReactConf](https://conf.reactjs.org/) started with the opening keynote of Sophie Alpert and Dan Abramov about "React Today and Tomorrow".

@@ -1,10 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: 'Yadullah Duman: Blog',
+    title: 'Blog of Yadullah Duman',
     author: 'Yadullah Duman',
     description:
-      'My personal blog where I share my experiences while exploring stuff',
+      'Personal Blog of Yadullah Duman, a JavaScript and Clean Code enthusiast.',
     siteUrl: 'https://yduman.github.io',
+    social: {
+      twitter: '@proxyduman',
+    },
   },
   pathPrefix: '/blog',
   plugins: [
@@ -31,7 +34,12 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              inlineCodeMarker: '÷',
+            },
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ],
@@ -43,8 +51,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Yadullah Duman Blog`,
-        short_name: `YD Blog`,
+        name: `yduman.blog()`,
+        short_name: `yduman.blog()`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
@@ -52,7 +60,6 @@ module.exports = {
         icon: `src/assets/blog-icon.png`,
       },
     },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-typography',
