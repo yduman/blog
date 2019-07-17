@@ -24,7 +24,11 @@ import React, { useState } from 'react'
 
 function Counter() {
   const [count, setCount] = useState(0)
-  const increment = () => setCount(currentCount => currentCount + 1)
+  
+  function increment() {
+    setCount(count + 1)
+  }
+  
   return <button onClick={increment}>{count}</button>
 }
 ```
@@ -41,13 +45,16 @@ import React, { useState, useEffect } from 'react'
 
 function Counter() {
   const [count, setCount] = useState(0)
-  const increment = () => setCount(currentCount => currentCount + 1)
+  
+  function increment() {
+    setCount(count + 1);
+  }
 
   useEffect(() => {
     document.title = `You clicked ${count} times`
   })
 
-  return <button onClick={() => setCount(count + 1)}>Click me</button>
+  return <button onClick={increment}>Click me</button>
 }
 ```
 
@@ -60,7 +67,11 @@ import React, { useState } from 'react'
 
 function useCounter(initialCount, step) {
   const [count, setCount] = useState(initialCount)
-  const increment = () => setCount(count + step)
+
+  function increment() {
+    setCount(count + step);
+  }
+
   return { count, increment }
 }
 
@@ -87,8 +98,11 @@ import Counter from './Counter'
 test('counter increments the count', () => {
   const { container } = render(<Counter />)
   const button = container.firstChild
+
   expect(button.textContent).toBe('0')
+  
   fireEvent.click(button)
+  
   expect(button.textContent).toBe('1')
 })
 ```
