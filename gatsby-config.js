@@ -1,9 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Blog of Yadullah Duman',
+    title: 'Duman Codes',
     author: 'Yadullah Duman',
-    description:
-      'Personal Blog of Yadullah Duman, a JavaScript and Clean Code enthusiast.',
+    description: 'Personal Blog of Yadullah Duman.',
     siteUrl: 'https://yduman.github.io',
     social: {
       twitter: '@proxyduman',

@@ -12,7 +12,7 @@ class Footer extends React.Component {
         }}
       >
         <a
-          href="https://mobile.twitter.com/proxyduman"
+          href="https://twitter.com/proxyduman"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -27,6 +27,13 @@ class Footer extends React.Component {
           GitHub
         </a>{' '}
         &bull;{' '}
+        <a
+          href="https://www.linkedin.com/in/yadullah-duman-601594137/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>{' '}
       </footer>
     )
   }
